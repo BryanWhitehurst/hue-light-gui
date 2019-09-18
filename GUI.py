@@ -7,22 +7,22 @@ window = Tk()
 window.title("Light Colors")
 window.geometry('900x400')
  
-lbl = Label(window, text="Room N222 Light Operator V1", font=("Times New Roman", 20))
+lbl = Label(window, text="Room N222 Light Operator V1", font=("sans-serif", 20))
 lbl.grid(column=0, row=0)
 
-lbl2 = Label(window, text="     ", font=("Times New Roman", 20))
+lbl2 = Label(window, text="     ", font=("sans-serif", 20))
 lbl2.grid(column=1, row=0)
 
-lbl3 = Label(window, text="Set Custom Hue (0-65535)", font=("Times New Roman", 20))
+lbl3 = Label(window, text="Set Custom Hue (0-65535)", font=("sans-serif", 20))
 lbl3.grid(column=2, row=0)
 
-lbl4 = Label(window, text=" ", font=("Times New Roman", 20))
+lbl4 = Label(window, text=" ", font=("sans-serif", 20))
 lbl4.grid(column=0, row=7)
 
-lbl3 = Label(window, text="Set Custom Brightness (1-254)", font=("Times New Roman", 20))
+lbl3 = Label(window, text="Set Custom Brightness (1-254)", font=("sans-serif", 20))
 lbl3.grid(column=0, row=7)
 
-lbl3 = Label(window, text="Set Custom Saturation (0-254)", font=("Times New Roman", 20))
+lbl3 = Label(window, text="Set Custom Saturation (0-254)", font=("sans-serif", 20))
 lbl3.grid(column=2, row=7)
 
 def toggleOn():
