@@ -1,4 +1,4 @@
-#hey
+#wasssssup this a test from logan
 from tkinter import *
 import requests, random, json, time
 
