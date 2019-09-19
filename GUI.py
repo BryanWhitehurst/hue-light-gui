@@ -6,22 +6,22 @@ window = Tk()
 window.title("Light Colors")
 window.geometry('900x400')
  
-lbl = Label(window, text="Room N222 Light Operator V1", font=("sans-serif", 20))
+lbl = Label(window, text="Room N222 Light Operator V1", font=("Helvetica", 20))
 lbl.grid(column=0, row=0)
 
-lbl2 = Label(window, text="     ", font=("sans-serif", 20))
+lbl2 = Label(window, text="     ", font=("Helvetica", 20))
 lbl2.grid(column=1, row=0)
 
-lbl3 = Label(window, text="Set Custom Hue (0-65535)", font=("sans-serif", 20))
+lbl3 = Label(window, text="Set Custom Hue (0-65535)", font=("Helvetica", 20))
 lbl3.grid(column=2, row=0)
 
-lbl4 = Label(window, text=" ", font=("sans-serif", 20))
+lbl4 = Label(window, text=" ", font=("Helvetica", 20))
 lbl4.grid(column=0, row=7)
 
-lbl3 = Label(window, text="Set Custom Brightness (1-254)", font=("sans-serif", 20))
+lbl3 = Label(window, text="Set Custom Brightness (1-254)", font=("Helvetica", 20))
 lbl3.grid(column=0, row=7)
 
-lbl3 = Label(window, text="Set Custom Saturation (0-254)", font=("sans-serif", 20))
+lbl3 = Label(window, text="Set Custom Saturation (0-254)", font=("Helvetica", 20))
 lbl3.grid(column=2, row=7)
 
 def toggleOn():
@@ -111,6 +111,17 @@ def setScaleBri():
     data = json.dumps({"bri": num})
 
     requests.put('http://130.160.155.109/api/WloqjO9v8WOZz8WV8LrAo7Wv55yKK7yHXzTCe-tI/groups/1/action', data=data)
+
+def getStatus():
+    state = json.loads(requests.get('http://130.160.155.109/api/WloqjO9v8WOZz8WV8LrAo7Wv55yKK7yHXzTCe-tI/lights').text)['1']['state']
+    return ('Light 1 - bri: '+str(state['bri'])+', sat: '+str(state['sat'])+', hue: '+str(state['hue']))
+
+lbl5 = Label(window, text="")
+lbl5.grid(column=0, row=12)
+
+status = getStatus()
+lbl4 = Label(window, text=str(status), font=("Helvetica", 20))
+lbl4.grid(column=0, row=13)
 
 btn = Button(window, text="Colorloop", command=colorloop)
 btn.grid(column=0, row=4)
