@@ -112,6 +112,14 @@ def setScaleBri():
 
     requests.put('http://130.160.155.109/api/WloqjO9v8WOZz8WV8LrAo7Wv55yKK7yHXzTCe-tI/groups/1/action', data=data)
 
+def gameDay():
+    lightEvens = json.dumps({"hue": 64800, "sat": 254})
+    lightOdds = json.dumps({"sat": 0})
+    requests.put('http://130.160.155.109/api/WloqjO9v8WOZz8WV8LrAo7Wv55yKK7yHXzTCe-tI/groups/1/action', data=lightEvens)
+    requests.put('http://130.160.155.109/api/WloqjO9v8WOZz8WV8LrAo7Wv55yKK7yHXzTCe-tI/lights/1/state', data= lightOdds)
+    requests.put('http://130.160.155.109/api/WloqjO9v8WOZz8WV8LrAo7Wv55yKK7yHXzTCe-tI/lights/3/state', data= lightOdds)
+
+
 btn = Button(window, text="Colorloop", command=colorloop)
 btn.grid(column=0, row=4)
 
@@ -182,5 +190,9 @@ satScale.grid(column = 0, row = 10)
 
 briScale = Scale(window, from_= 1, to = 254, orient = HORIZONTAL)
 briScale.grid(column = 0, row = 11)
+
+##custom scences
+btn16 = Button(window, text = "Game Day", command = gameDay)
+btn16.grid(column = 2, row = 9)
 
 window.mainloop()
